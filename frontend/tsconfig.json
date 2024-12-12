@@ -1,25 +1,28 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "preserve"
+    "target": "esnext",                 // Target the latest ECMAScript version for modern browsers
+    "lib": ["dom", "dom.iterable", "esnext"], // Include DOM and modern JS features
+    "allowJs": true,                    // Allow JavaScript files alongside TypeScript
+    "skipLibCheck": true,               // Skip type checking for external libraries
+    "esModuleInterop": true,            // Enable compatibility with ES modules
+    "allowSyntheticDefaultImports": true, // Allow default imports for non-ES modules
+    "strict": true,                     // Enable strict type checking for robustness
+    "forceConsistentCasingInFileNames": true, // Enforce consistent file casing
+    "module": "esnext",                 // Use ES module syntax
+    "moduleResolution": "node",         // Resolve modules using Node.js resolution
+    "resolveJsonModule": true,          // Allow importing JSON modules
+    "isolatedModules": true,            // Enforce module isolation for compatibility with `tsc`
+    "noEmit": true,                     // Prevent emitting compiled files in the frontend
+    "jsx": "react-jsx",                 // Use React's new JSX runtime
+    "noImplicitReturns": true,          // Flag functions that lack return values
+    "noUnusedLocals": true,             // Flag unused local variables
+    "noUnusedParameters": true          // Flag unused function parameters
   },
-  "include": [
-    "src"
+  "include": ["src"],                   // Include only the `src` directory
+  "exclude": [
+    "node_modules", 
+    "**/*.test.ts", 
+    "**/*.test.tsx", 
+    "dist"                              // Exclude build artifacts
   ]
 }

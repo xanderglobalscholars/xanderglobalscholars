@@ -9,18 +9,40 @@
     "start": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm install --production"
+    "build:backend": "cd backend && npm install --production",
+    "test": "concurrently \"npm run test:frontend\" \"npm run test:backend\"",
+    "test:frontend": "cd frontend && npm test",
+    "test:backend": "cd backend && npm test"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "concurrently": "^8.0.1",
-    "nodemon": "^3.1.7"
+    "jest": "^27.5.1",
+    "mongodb-memory-server": "^10.1.2",
+    "nodemon": "^3.1.7",
+    "supertest": "^7.0.0"
   },
   "dependencies": {
-    "16": "^0.0.2",
     "18": "^0.0.0",
-    "python": "^0.0.4",
-    "sass": "^1.82.0"
+    "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
+    "@tailwindcss/forms": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.15",
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-graphql": "^0.12.0",
+    "firebase": "^11.0.2",
+    "firebase-functions": "^6.1.2",
+    "graphql": "^15.9.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.4",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^3.0.1",
+    "sass": "^1.82.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "yamljs": "^0.3.0"
   }
 }

@@ -1,8 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es6"],
-    "jsx": "react",
+    "target": "es2017", // Updated to support modern JavaScript
+    "lib": ["dom", "es2017"], // Matching target for compatibility
     "moduleResolution": "node",
     "module": "commonjs",
     "strict": true,
@@ -14,13 +13,20 @@
     "baseUrl": "./",
     "paths": {
       "*": ["node_modules/*"]
-    }
+    },
+    "resolveJsonModule": true, // Enables importing JSON files
+    "allowSyntheticDefaultImports": true, // For better compatibility with non-TypeScript libraries
+    "noImplicitReturns": true, // Ensures functions return the correct type
+    "noUnusedLocals": true, // Flags unused variables
+    "noUnusedParameters": true // Flags unused function parameters
   },
   "include": [
     "frontend/src/**/*",
     "backend/src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist", // Exclude output directory
+    "**/*.test.ts" // Exclude test files if not needed
   ]
 }
