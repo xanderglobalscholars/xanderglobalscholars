@@ -1,15 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/ProfilePage"; // Assuming you have a Profile page created
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <div className="p-6">
-        <h1 className="text-3xl font-bold">Welcome to Xander Global Scholars</h1>
-        <p className="text-lg">Manage your student journey effortlessly!</p>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/profile" element={<Profile />} />
+        {/* Add more routes for other pages */}
+      </Routes>
+    </Router>
   );
 };
 

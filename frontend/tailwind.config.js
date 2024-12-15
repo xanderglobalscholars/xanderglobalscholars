@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./public/index.html", // Ensure this includes your public HTML files
+    "./src/**/*.{js,jsx,ts,tsx}", // Include all React component files
+    "./public/index.html", // Ensure Tailwind works on your public HTML files
   ],
   theme: {
     extend: {},

@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
 
-const repaymentSchema = new mongoose.Schema({
-  paymentDate: { type: Date, required: true },
-  amountPaid: { type: Number, required: true },
-  remainingBalance: { type: Number, required: true }
-});
+const LoanSchema = new mongoose.Schema(
+  {
+    studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Student', required: true },
+    amount: { type: Number, required: true, min: 0 },
+    interestRate: { type: Number, required: true, min: 0 },
+    repaymentInfo: {
+      installments: [
+        {
+          amount: { type: Number, required: true, min: 0 },
+          dueDate: { type: Date, required: true },
+          status: { type: String, enum: ['pending', 'paid'], default: 'pending' },
+        },
+      ],
+    },
+  },
+  { timestamps: true }
+);
 
-const loanSchema = new mongoose.Schema({
-  studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-  amount: { type: Number, required: true },
-  interestRate: { type: Number, required: true },
-  repaymentPeriod: { type: Number, required: true }, // in months
-  status: { type: String, enum: ['approved', 'pending', 'rejected'], default: 'pending' },
-  repayments: [repaymentSchema],
-  createdAt: { type: Date, default: Date.now }
-});
-
-const Loan = mongoose.model('Loan', loanSchema);
-module.exports = Loan;
+module.exports = mongoose.model('Loan', LoanSchema);

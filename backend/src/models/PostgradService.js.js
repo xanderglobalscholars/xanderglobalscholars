@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
-const postgradServiceSchema = new mongoose.Schema({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  universityId: { type: mongoose.Schema.Types.ObjectId, ref: 'University', required: true },
-  createdAt: { type: Date, default: Date.now }
-});
+const PostgraduateSchema = new mongoose.Schema(
+  {
+    studentId: { type: mongoose.Schema.Types.ObjectId, ref: 'Student', required: true },
+    serviceType: { type: String, required: true }, // Example: "Job Placement", "Alumni Networking"
+    details: { type: String },
+  },
+  { timestamps: true }
+);
 
-const PostgradService = mongoose.model('PostgradService', postgradServiceSchema);
-module.exports = PostgradService;
+module.exports = mongoose.model('Postgraduate', PostgraduateSchema);

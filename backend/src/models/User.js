@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
     email: {
       type: String,
       required: true,
       unique: true,
-      match: [/\S+@\S+\.\S+/, 'Please use a valid email address'],
+      match: [/\S+@\S+\.\S+/, 'Invalid email format'],
     },
     password: { type: String, required: true },
     role: {
@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
 );
 
 // Pre-save middleware for hashing the password
-userSchema.pre('save', async function (next) {
+UserSchema.pre('save', async function (next) {
   if (!this.isModified('password')) return next();
   try {
     const salt = await bcrypt.genSalt(10);
@@ -33,8 +33,15 @@ userSchema.pre('save', async function (next) {
 });
 
 // Method for password validation
-userSchema.methods.validatePassword = async function (password) {
+UserSchema.methods.validatePassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-module.exports = mongoose.model('User', userSchema);
+// Add a method to exclude sensitive data like password
+UserSchema.methods.toJSON = function () {
+  const user = this.toObject();
+  delete user.password; // Remove password field
+  return user;
+};
+
+module.exports = mongoose.model('User', UserSchema);

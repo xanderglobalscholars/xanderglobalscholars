@@ -1,0 +1,39 @@
+name: xander_global_scholars
+description: A platform for global student applications to educational programs.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.5 # State management
+  dio: ^5.0.0 # HTTP client for API integration
+  flutter_secure_storage: ^8.0.0 # Securely storing authentication tokens
+  json_annotation: ^5.4.0 # For serializing JSON to Dart objects
+  shared_preferences: ^2.1.1 # Persistent storage
+  cached_network_image: ^3.2.3 # For loading and caching network images
+  google_fonts: ^5.2.0 # Custom fonts
+  url_launcher: ^6.1.12 # Opening URLs
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.5.1 # Code generation for JSON serialization
+  json_serializable: ^6.8.0 # Automating JSON serialization for models
+
+flutter:
+  uses-material-design: true
+
+# Assets
+assets:
+  - assets/images/ # Include an images directory for local assets
+
+# Fonts
+fonts:
+  - family: Poppins
+    fonts:
+      - asset: assets/fonts/Poppins-Regular.ttf
+      - asset: assets/fonts/Poppins-Bold.ttf
+        weight: 700

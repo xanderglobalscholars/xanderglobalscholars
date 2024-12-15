@@ -4,7 +4,7 @@ function App() {
   const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/graphql`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
