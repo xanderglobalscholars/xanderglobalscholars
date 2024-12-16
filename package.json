@@ -10,7 +10,8 @@
     "build": "cd frontend && npm install && npm run build",
     "test": "concurrently \"npm run test:frontend\" \"npm run test:backend\"",
     "test:frontend": "cd frontend && npm test",
-    "test:backend": "cd backend && npm test"
+    "test:backend": "cd backend && npm test",
+    "postinstall": "npm install typescript@4.9.5 --save-dev"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
