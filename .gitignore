@@ -132,3 +132,4 @@ dist
 # Replit debugger
 .breakpointsbackend/firebase/serviceAccountKey.json
 .vercel
+backend/firebase/serviceAccountKey.json
