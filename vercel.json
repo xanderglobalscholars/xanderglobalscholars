@@ -26,5 +26,9 @@
   "env": {
     "NODE_OPTIONS": "--openssl-legacy-provider",
     "TAILWIND_MODE": "build"
+  },
+  "github": {
+    "enabled": true,
+    "autoJobCancelation": true
   }
 }
